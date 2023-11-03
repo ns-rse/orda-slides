@@ -1,11 +1,11 @@
 ---
-title: "Template Revealjs Quarto site"
+title: "ORDA for FAIR4RS"
 # format: revealjs
 author:
-  - name: Your Name
-    orcid: 0000-0000-0000-0000
-    email: email@address.work
-    affiliations: Employers Name
+  - name: Neil Shephard
+    orcid: 0000-0001-8301-6857
+    email: n.shephard@sheffield.ac.uk
+    affiliations: RSE, University of Sheffield
 from: markdown+emoji
 format:
   clean-revealjs:
@@ -18,7 +18,7 @@ format:
     # standalone: true
 revealjs-plugins:
   - confetti
-footer: "**Slides** : [**github-username.github.io/<repository>**](https://github-username.github.io/<repository>)"
+footer: "**Slides** : [**ns-rse.github.io/orda-slides**](https://ns-rse.github.io/orda-slides)"
 project:
   preview:
     port: 7864
@@ -28,305 +28,249 @@ project:
 
 ## Scan This!
 
-{{< qrcode https://ns-rse.github.io/quarto-revealjs-template qr1 width=400 height=400 >}}
+{{< qrcode https://ns-rse.github.io/orda-slides qr1 width=400 height=400 >}}
 
-[ns-rse.github.io/quarto-revealjs-template](https://ns-rse.github.io/quarto-revealjs-template)
+[ns-rse.github.io/orda-slides](https://ns-rse.github.io/orda-slides)
 
-## Quarto RevealJS Slides
+## University Policy
 
-This is a [Quarto](https://quarto.org/) template for creating [RevealJS](https://revealjs.com/) slides.
-
-The template can be used as a starting point for your own slides and includes a number of different layouts and examples
-of Markdown syntax, slide layout, links, embedding images and configuration options.
-
-## Formatting
-
-Quarto slides are written in [Markdown](https://quarto.org/docs/authoring/markdown-basics.html).
-
-| Markdown Syntax                              | Output                                |
-|:---------------------------------------------|:--------------------------------------|
-| `*italics*`, `**bold**`, `***bolditalics***` | *italics*, **bold**, **bold italics** |
-| `superscript^1^`, `subscript~2~`             | superscript^1^, subscript~2~          |
-| `~~strikethrough~~`                          | ~~strikethrough~~                     |
-| ```code```                                   | `code`                                |
-| `[Quarto](https://quarto.org)`               | [Quarto](https://quarto.org)          |
+> We aspire to open research culture that values a diverse range of contributions and adheres to the FAIR principles to
+> enable the results of our research to be of maximum benefit to society (findable, accessible, interoperable and
+> reusable), whilst also respecting circumstances that limit data sharing (for example, due to issues of privacy,
+> non-consent, contractual agreements, legislation or practicality). - [University statement on Open Research](https://www.sheffield.ac.uk/openresearch/university-statement-open-research)
 
 ::: {.notes}
-Speaker Notes can be added to each slide. **Formatting** can be used here too.
+University policy on Open Research aspires to an open research culture that adheres to the FAIR principles.
 :::
 
-## Columns and Lists
+## University Commitment
 
-Slides can have columns and you can create [lists](https://quarto.org/docs/authoring/markdown-basics.html#lists) of
-different types.
+Open Research practices are embeded in...
+
++ [University Vision](https://www.sheffield.ac.uk/vision)
++ [Good Research & Innovation Practices (GRIP)
+  policy](https://www.sheffield.ac.uk/polopoly_fs/1.671066!/file/GRIPPolicy.pdf)
++ [UKRI’s Concordat on Open Research
+  Data](https://www.ukri.org/about-us/policies-standards-and-data/good-research-resource-hub/open-research/)
++ [The Sorbonne Declaration on Data Rights](https://sorbonnedatadeclaration.eu/)
+
+::: {.notes}
+Open Research practices are embedded in the Universities Vision which was published in 202 and their Good Research &
+Innovation Practices policy as well as in other statements and declaration that the University is committed to such as
+[UKRI’s Concordat on Open Research
+ Data](https://www.ukri.org/about-us/policies-standards-and-data/good-research-resource-hub/open-research/) and [The
+ Sorbonne Declaration on Data Rights](https://sorbonnedatadeclaration.eu/).
+
+:::
+
+## Online Research DAta (ORDA) - Basics
 
 :::: {.columns}
+::: {.column width="35%"}
++ [ORDA](https://orda.shef.ac.uk/) is a version of the [figshare](https://knowledge.figshare.com/institutions) Data
+  Repository.
++ Single Sign-On : [orda.shef.ac.uk](https://orda.shef.ac.uk)
++ 25GB of storage by default (request more).
+:::
+::: {.column width="65%"}
+![ORDA Frontpage](img/orda_front_page.png)
+:::
+::::
 
-::: {.column width="50%"}
-**ToDo** (code)
+## Account Page
 
-```markdown
-+ Learn Markdown
-+ Create Quarto Slides
-+ Publish on GitHub
-```
+:::: {.columns}
+::: {.column width="35%"}
++ My Data
++ Projects
++ Collections
++ Activity
 
 :::
+::: {.column width="65%"}
+![Account Overview](img/orda_account_overview.png)
+:::
+::::
 
+## Automate Uploading from GitHub
+
+GitHub Workflow [release_to_ORDA](https://github.com/RSE-Sheffield/release_to_ORDA) well documented `README.md` (thanks
+Bob :pray:)
+
+:::: {.columns}
 ::: {.column width="50%"}
-**ToDo** (Rendered)
-
-+ Learn Markdown
-+ Create Quarto Slides
-+ Publish on GitHub
-
+1. Create an Article on ORDA
+2. Generate a `FIGSHARE_TOKEN`
+3. Store `FIGSHARE_TOKEN` token in repository
+4. Find `FIGSHARE_ARTICLE_ID`
+:::
+::: {.column width="50%"}
+5. Copy `ORDA.yaml` to repository, inserting `FIGSHARE_ARTICLE_ID`
+6. Create a badge and add to `README.md`
+7. Commit & push to GitHub
+8. Create a release on GitHub
 :::
 ::::
 
 ::: {.notes}
-Slides can have columns and we can create unordered lists.
+Fortunately Bob Turner created the `releas_to_ORDA` repository which includes a GitHub Workflow file `ORDA.yaml` which
+you can drop into your `.github/workflows/ORDA.yaml` and with a little configuration have release artefacts uploaded
+from GitHub to ORDA automatically.
+
+Its well documented with a comprehensive `README.md` that tells you all the steps you need to take.
 :::
 
-## Columns and Lists (cont.)
+
+## Create an Article
 
 :::: {.columns}
-
 ::: {.column width="50%"}
-**Ordered** (code)
 
-```markdown
-1. A comes before
-2. B which is followed by
-3. C
-```
+**Required**
+
++ Authors
++ Title
++ Description
++ Licence
++ Ethics
++ Policy
++ Sharing and access restrictions
++ Methodology, headings and units
 
 :::
-
 ::: {.column width="50%"}
-**Ordered** (Rendered)
+**Optional**
 
-1. A comes before
-2. B which is followed by
-3. C
-
++ Funding
 :::
 ::::
 
 ::: {.notes}
-Or ordered lists.
+Before you can automate uploads from GitHub you have to have an entry to which they are uploaded. Most fields are
+obligatory and need completing, the only one that isn't is Funding.
+
+Might need to be draft at this point :thinking:
 :::
 
-## Tables
-
-You can manually add [tables](https://quarto.org/docs/authoring/markdown-basics.html#tables).
+## Figshare Token
 
 :::: {.columns}
-
 ::: {.column width="50%"}
+[How to get a Personal Token](https://help.figshare.com/article/how-to-get-a-personal-token)
 
-```markdown
-| Right | Left | Default | Center |
-|------:|:-----|---------|:------:|
-|   12  |  12  |    12   |    12  |
-|  123  |  123 |   123   |   123  |
-|    1  |    1 |     1   |     1  |
-```
-
++ Login to ORDA
++ _User Menu > Applications_
++ Create Personal Token
++ Description
++ Save
 :::
 ::: {.column width="50%"}
-
-| Right | Left | Default | Center |
-|------:|:-----|---------|:------:|
-|   12  |  12  |    12   |    12  |
-|  123  |  123 |   123   |   123  |
-|    1  |    1 |     1   |     1  |
-
+[Using secrets in GitHub Actions](https://docs.github.com/en/actions/security-guides/using-secrets-in-github-actions#creating-encrypted-secrets-for-a-repository)
++ Repository _Settings > Secrets and Variables > Actions_
++ Secrets Tab click _New repository secret_
++ Give it a name e.g. ORDA
++ Paste Token from ORDA in.
++ Add Secret
 :::
 ::::
 
 ::: {.notes}
-Tables can be added, but there is a better way to include these programatically
+Login to ORDA and from the User Menu select _Applications_, scroll down and you can _Create Personal Token_, add a
+_Description_ and click on _Save_. As with most tokens these are only shown once so make sure to copy and save it
+somewhere secure if you're not undertaking the next step immediately.
 :::
 
-## Equations
-
-| Markdown Syntax                    | Output                       |
-|:----------------------------------:|:-----------------------------|
-| `inline math $E = mc^{2}$`         | inline math $E = mc^{2}$     |
-| ```display math: $$E = mc^{2}$$``` | display math: $$E = mc^{2}$$ |
-
-::: {.notes}
-You can write equations if you need to.
-:::
-
-## Embed Images
-
-[Figures](https://quarto.org/docs/authoring/figures.html) can be embeded using a URL and resized.
-
-```markdown
-![Relaxing in the mountains](https://live.staticflickr.com/65535/53144704609_c5e6fa8c77_k.jpg){width=700}
-```
-
-![Relaxing in the Julian Alps](https://live.staticflickr.com/65535/53144704609_c5e6fa8c77_k.jpg){width=700}
-
-::: {.notes}
-:::
-
-## Embed Images (*cont.*)
-
-You can also include images locally.^[Make sure to `git add` them otherwise they won't publish] and make them hyperlinks.
-
-```markdown
-![[OSC Sheffield](https://osc-international.com/osc-sheffield)](img/OSC_Sheffield.png){width=300}
-```
-
-![[OSC Sheffield](https://osc-international.com/osc-sheffield)](img/OSC_Sheffield.png){width=300}
-
-::: {.notes}
-:::
-
-## R code
+## Figshare Article ID
 
 :::: {.columns}
-
 ::: {.column width="50%"}
-Include [R code and output](https://quarto.org/docs/computations/r.html) with automatic referencing (see @fig-airquality2)
-
-```{r}
-#| label: fig-airquality
-#| fig-cap: "Temperature and ozone level."
-#| warning: false
-#| eval: false
-#| echo: true
-library(ggplot2)
-
-ggplot(airquality, aes(Temp, Ozone)) +
-  geom_point() +
-  geom_smooth(method = "loess")
-```
-
++ Find the DOI
++ Figshare Article ID is the trailing number.
 :::
 ::: {.column width="50%"}
-
-```{r}
-#| label: fig-airquality2
-#| fig-cap: "Temperature and ozone level."
-#| warning: false
-
-library(ggplot2)
-
-ggplot(airquality, aes(Temp, Ozone)) +
-  geom_point() +
-  geom_smooth(method = "loess")
-```
-
-:::
-
-::::
-
-::: {.notes}
-[R](https://www.r-project.org/) code can be embeded and executed to produce tables and figures.
-:::
-
-## Python code
-
-::: {.column width="50%"}
-Include [Python code and output](https://quarto.org/docs/computations/python.html) too
-
-```{.python}
-#| label: fig-polar
-#| fig-cap: "A line plot on a polar axis."
-#| warning: false
-#| eval: false
-#| echo: true
-import numpy as np
-import matplotlib.pyplot as plt
-
-r = np.arange(0, 2, 0.01)
-theta = 2 * np.pi * r
-fig, ax = plt.subplots(
-  subplot_kw = {'projection': 'polar'}
-)
-ax.plot(theta, r)
-ax.set_rticks([0.5, 1, 1.5, 2])
-ax.grid(True)
-plt.show()
-```
-
-:::
-::: {.column width="50%"}
-
-```{.python}
-#| label: fig-polar2
-#| fig-cap: "A line plot on a polar axis."
-#| warning: false
-#| eval: true
-#| echo: true
-import numpy as np
-import matplotlib.pyplot as plt
-
-r = np.arange(0, 2, 0.01)
-theta = 2 * np.pi * r
-fig, ax = plt.subplots(
-  subplot_kw = {'projection': 'polar'}
-)
-ax.plot(theta, r)
-ax.set_rticks([0.5, 1, 1.5, 2])
-ax.grid(True)
-plt.show()
-```
-
+![DOI and Figshare Article ID](img/orda_figshare_id.png)
 :::
 ::::
 
 ::: {.notes}
-You can include [Python](https://www.python.org) code too
+The Figshare article ID can be found on the article page you created on the right hand side.
 :::
 
-## General code
 
-There are lots of options for showing, hiding, highlighting [code
-blocks](https://quarto.org/docs/presentations/revealjs/#code-blocks).
+## Copy & Edit `ORDA.yaml`
 
-```{.python code-line-numbers="6-8"}
-#| eval: true
-#| echo: true
-import numpy as np
-import matplotlib.pyplot as plt
-
-r = np.arange(0, 2, 0.01)
-theta = 2 * np.pi * r
-fig, ax = plt.subplots(subplot_kw={'projection': 'polar'})
-ax.plot(theta, r)
-ax.set_rticks([0.5, 1, 1.5, 2])
-ax.grid(True)
-plt.show()
+``` {.yaml code-line-numbers="27"}
+name: Release to ORDA
+on:
+  workflow_dispatch:
+  release:
+    types: [published]
+jobs:
+  upload:
+    runs-on: ubuntu-latest
+    env:
+      ARCHIVE_NAME: ${{ github.event.repository.name }}-${{ github.event.release.tag_name }}
+    steps:
+      - name: prepare-data-folder
+        run : mkdir 'data'
+      - name: download-archive
+        run: |
+          curl -sL "${{ github.event.release.zipball_url }}" > "$ARCHIVE_NAME".zip
+          curl -sL "${{ github.event.release.tarball_url }}" > "$ARCHIVE_NAME".tar.gz
+      - name: move-archive
+        run: |
+          mv "$ARCHIVE_NAME".zip data/
+          mv "$ARCHIVE_NAME".tar.gz data/
+      - name: upload-to-figshare
+        uses: figshare/github-upload-action@v1.1
+        with:
+          FIGSHARE_TOKEN: ${{ secrets.FIGSHARE_TOKEN }}
+          FIGSHARE_ENDPOINT: 'https://api.figshare.com/v2'
+          FIGSHARE_ARTICLE_ID: 123456789  # Change this number!
+          DATA_DIR: 'data'
 ```
 
-## The Documentation is Good
+::: {.notes}
+This is easy, make a copy of the `ORDA.yaml` from the repository and save it in your repositories
+`.github/workflows/ORDA.yaml`. Edit the value of `FIGSHARE_ARTICLE_ID`
+:::
 
-The official documentation is really good.
+## Add badge to `README.md`
 
-+ [Get Started](https://quarto.org/docs/get-started/)
-+ [Markdown Basics](https://quarto.org/docs/authoring/markdown-basics.html)
-+ [Guide](https://quarto.org/docs/guide/) with many sections on [Presentations](https://quarto.org/docs/presentations/)
-  [Website](https://quarto.org/docs/websites/), [Books](https://quarto.org/docs/books/) and more.
+``` {.markdown}
+[![ORDA](https://img.shields.io/badge/ORDA--DOI-10.123456%2Fshef.data.123456789.v.1-lightgrey)](https://figshare.shef.ac.uk/articles/software/TopoStats/123456789/1)
+```
 
-## Extensions
+::: {.notes}
+You can add a badge to you repositories `README.md` which makes it easier for people to find and cite your work, one of
+the key ideas behind the FAIR principles. The URL for the badge will depend on your DOI and the link will depend on the
+URL of your package on ORDA.
+
+Once done stage and commit all changes, this will be the `README.md` you've just modified and adding the
+`.github/workflows/ORDA.yaml`. Push these to GitHub.
+:::
+
+
+## Make a Release
+
+::: {.notes}
+:::
+
+## Links
 
 :::: {.columns}
-
 ::: {.column width="50%"}
-[Extensions](https://quarto.org/docs/extensions/) for themes and other functionality
-(press `c` whilst viewing these slides :wink: ).
-
-+ [Shortcode/Filter](https://quarto.org/docs/extensions/listing-filters.html)
-+ [Journal Articles](https://quarto.org/docs/extensions/listing-journals.html)
-+ [Custom Formats](https://quarto.org/docs/extensions/listing-formats.html)
-+ [**RevealJS**](https://quarto.org/docs/extensions/listing-revealjs.html)
-
++ [GO FAIR](https://www.go-fair.org/fair-principles/)
++ [FAIR Principles for research software](https://www.nature.com/articles/s41597-022-01710-x)
++ [ORDA](https://figshare.shef.ac.uk/)
++ [ORDA | Library](https://www.sheffield.ac.uk/library/research-data-management/orda)
++ [Uploading to ORDA](https://www.sheffield.ac.uk/media/41035/download?attachment)
++ [ORDA: useful tips](https://www.sheffield.ac.uk/media/43803/download?attachment)
++ [Managing an item in ORDA](https://www.sheffield.ac.uk/media/41034/download?attachment)
 :::
-::: {.column width=50%}
-{{< qrcode <https://ns-rse.github.io/quarto-revealjs-template> qr2 width=400 height=400 >}}
+::: {.column width="50%"}
++ [release_to_ORDA](https://github.com/RSE-Sheffield/release_to_ORDA) template
++ [How to get a Personal Token](https://help.figshare.com/article/how-to-get-a-personal-token)
++ [Using secrets in GitHub Actions](https://docs.github.com/en/actions/security-guides/using-secrets-in-github-actions#creating-encrypted-secrets-for-a-repository)
 :::
 ::::
