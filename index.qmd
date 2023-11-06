@@ -253,7 +253,71 @@ Once done stage and commit all changes, this will be the `README.md` you've just
 
 ## Make a Release
 
+:::: {.columns}
+::: {.column width="50%"}
+<!-- + `https://github.com/<org_or_user_account>/<pkg>/releases/new`. -->
++ Choose Tag (create if required).
++ Add a title.
++ Generate release notes (edit if required).
++ Set as a pre-release if required.
++ Publish release
+:::
+::: {.column width="50%"}
+![GitHub Releases](img/github_timeout.png)
+:::
+::::
+
 ::: {.notes}
+The process of making a release is unchanged, go to the repository and then navigate to `releases/new`, choose a tag and
+create if required. Add a title and you can get a summary of changes by auto-generating the release notes which pulls in
+the title of commits (only really useful if you've clear and effective PR headings). Set as a pre-release if required
+and then Publish.
+:::
+
+## Make a Release
+
+:::: {.columns}
+::: {.column width="50%"}
+<!-- + `https://github.com/<org_or_user_account>/<pkg>/releases/new`. -->
++ Choose Tag (create if required).
++ Add a title.
++ Generate release notes (edit if required).
++ Set as a pre-release if required.
++ Publish release
+:::
+::: {.column width="50%"}
+![ORDA Action Socket Timeout](img/github_releases.png)
+:::
+::::
+
+::: {.notes}
+New artifacts typically require reviewing so you need to return to the
+:::
+
+## Request a Review
+
+:::: {.columns}
+::: {.column width="50%"}
+<!-- + `https://github.com/<org_or_user_account>/<pkg>/releases/new`. -->
++ Choose Tag (create if required).
++ Add a title.
++ Generate release notes (edit if required).
++ Set as a pre-release if required.
++ Publish release
+:::
+::: {.column width="50%"}
+![ORDA Review](img/orda_review.png)
+:::
+::::
+
+::: {.notes}
+This will trigger the ORDA GitHub Action and it should upload the artifacts automatically, although my experience is
+that this often fails through time-outs and you have to manually re-run the job or download the artifacts from the
+release and upload manually.
+
+Would like to resolve this but....time!
+
+New artifacts typically require reviewing so you need to return to the
 :::
 
 ## Links
