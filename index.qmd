@@ -165,7 +165,9 @@ Might need to be draft at this point :thinking:
 + Save
 :::
 ::: {.column width="50%"}
-[Using secrets in GitHub Actions](https://docs.github.com/en/actions/security-guides/using-secrets-in-github-actions#creating-encrypted-secrets-for-a-repository)
+[Using secrets in GitHub
+Actions](https://docs.github.com/en/actions/security-guides/using-secrets-in-github-actions#creating-encrypted-secrets-for-a-repository)
+
 + Repository _Settings > Secrets and Variables > Actions_
 + Secrets Tab click _New repository secret_
 + Give it a name e.g. ORDA
@@ -263,7 +265,7 @@ Once done stage and commit all changes, this will be the `README.md` you've just
 + Publish release
 :::
 ::: {.column width="50%"}
-![GitHub Releases](img/github_timeout.png)
+![ORDA Action Socket Timeout](img/github_releases.png)
 :::
 ::::
 
@@ -286,7 +288,7 @@ and then Publish.
 + Publish release
 :::
 ::: {.column width="50%"}
-![ORDA Action Socket Timeout](img/github_releases.png)
+![GitHub Releases](img/github_timeout.png)
 :::
 ::::
 
