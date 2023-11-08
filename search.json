@@ -1,0 +1,107 @@
+[
+  {
+    "objectID": "index.html#scan-this",
+    "href": "index.html#scan-this",
+    "title": "ORDA for FAIR4RS",
+    "section": "Scan This!",
+    "text": "Scan This!\n\n\n    \nns-rse.github.io/orda-slides"
+  },
+  {
+    "objectID": "index.html#university-policy",
+    "href": "index.html#university-policy",
+    "title": "ORDA for FAIR4RS",
+    "section": "University Policy",
+    "text": "University Policy\n\nWe aspire to open research culture that values a diverse range of contributions and adheres to the FAIR principles to enable the results of our research to be of maximum benefit to society (findable, accessible, interoperable and reusable), whilst also respecting circumstances that limit data sharing (for example, due to issues of privacy, non-consent, contractual agreements, legislation or practicality). - University statement on Open Research\n\n\nUniversity policy on Open Research aspires to an open research culture that adheres to the FAIR principles."
+  },
+  {
+    "objectID": "index.html#university-commitment",
+    "href": "index.html#university-commitment",
+    "title": "ORDA for FAIR4RS",
+    "section": "University Commitment",
+    "text": "University Commitment\nOpen Research practices are embeded in…\n\nUniversity Vision\nGood Research & Innovation Practices (GRIP) policy\nUKRI’s Concordat on Open Research Data\nThe Sorbonne Declaration on Data Rights\n\n\nOpen Research practices are embedded in the Universities Vision which was published in 202 and their Good Research & Innovation Practices policy as well as in other statements and declaration that the University is committed to such as UKRI’s Concordat on Open Research Data and The Sorbonne Declaration on Data Rights."
+  },
+  {
+    "objectID": "index.html#online-research-data-orda---basics",
+    "href": "index.html#online-research-data-orda---basics",
+    "title": "ORDA for FAIR4RS",
+    "section": "Online Research DAta (ORDA) - Basics",
+    "text": "Online Research DAta (ORDA) - Basics\n\n\n\nORDA is a version of the figshare Data Repository.\nSingle Sign-On : orda.shef.ac.uk\n25GB of storage by default (request more).\n\n\n\n\n\nORDA Frontpage"
+  },
+  {
+    "objectID": "index.html#account-page",
+    "href": "index.html#account-page",
+    "title": "ORDA for FAIR4RS",
+    "section": "Account Page",
+    "text": "Account Page\n\n\n\nMy Data\nProjects\nCollections\nActivity\n\n\n\n\n\nAccount Overview"
+  },
+  {
+    "objectID": "index.html#automate-uploading-from-github",
+    "href": "index.html#automate-uploading-from-github",
+    "title": "ORDA for FAIR4RS",
+    "section": "Automate Uploading from GitHub",
+    "text": "Automate Uploading from GitHub\nGitHub Workflow release_to_ORDA well documented README.md (thanks Bob 🙏)\n\n\n\nCreate an Article on ORDA\nGenerate a FIGSHARE_TOKEN\nStore FIGSHARE_TOKEN token in repository\nFind FIGSHARE_ARTICLE_ID\n\n\n\nCopy ORDA.yaml to repository, inserting FIGSHARE_ARTICLE_ID\nCreate a badge and add to README.md\nCommit & push to GitHub\nCreate a release on GitHub\n\n\n\n\nFortunately Bob Turner created the releas_to_ORDA repository which includes a GitHub Workflow file ORDA.yaml which you can drop into your .github/workflows/ORDA.yaml and with a little configuration have release artefacts uploaded from GitHub to ORDA automatically.\nIts well documented with a comprehensive README.md that tells you all the steps you need to take."
+  },
+  {
+    "objectID": "index.html#create-an-article",
+    "href": "index.html#create-an-article",
+    "title": "ORDA for FAIR4RS",
+    "section": "Create an Article",
+    "text": "Create an Article\n\n\nRequired\n\nAuthors\nTitle\nDescription\nLicence\nEthics\nPolicy\nSharing and access restrictions\nMethodology, headings and units\n\n\nOptional\n\nFunding\n\n\n\n\nBefore you can automate uploads from GitHub you have to have an entry to which they are uploaded. Most fields are obligatory and need completing, the only one that isn’t is Funding.\nMight need to be draft at this point 🤔"
+  },
+  {
+    "objectID": "index.html#figshare-token",
+    "href": "index.html#figshare-token",
+    "title": "ORDA for FAIR4RS",
+    "section": "Figshare Token",
+    "text": "Figshare Token\n\n\nHow to get a Personal Token\n\nLogin to ORDA\nUser Menu &gt; Applications\nCreate Personal Token\nDescription\nSave\n\n\nUsing secrets in GitHub Actions + Repository Settings &gt; Secrets and Variables &gt; Actions + Secrets Tab click New repository secret + Give it a name e.g. ORDA + Paste Token from ORDA in. + Add Secret\n\n\n\nLogin to ORDA and from the User Menu select Applications, scroll down and you can Create Personal Token, add a Description and click on Save. As with most tokens these are only shown once so make sure to copy and save it somewhere secure if you’re not undertaking the next step immediately."
+  },
+  {
+    "objectID": "index.html#figshare-article-id",
+    "href": "index.html#figshare-article-id",
+    "title": "ORDA for FAIR4RS",
+    "section": "Figshare Article ID",
+    "text": "Figshare Article ID\n\n\n\nFind the DOI\nFigshare Article ID is the trailing number.\n\n\n\n\n\nDOI and Figshare Article ID\n\n\n\n\n\nThe Figshare article ID can be found on the article page you created on the right hand side."
+  },
+  {
+    "objectID": "index.html#copy-edit-orda.yaml",
+    "href": "index.html#copy-edit-orda.yaml",
+    "title": "ORDA for FAIR4RS",
+    "section": "Copy & Edit ORDA.yaml",
+    "text": "Copy & Edit ORDA.yaml\nname: Release to ORDA\non:\n  workflow_dispatch:\n  release:\n    types: [published]\njobs:\n  upload:\n    runs-on: ubuntu-latest\n    env:\n      ARCHIVE_NAME: ${{ github.event.repository.name }}-${{ github.event.release.tag_name }}\n    steps:\n      - name: prepare-data-folder\n        run : mkdir 'data'\n      - name: download-archive\n        run: |\n          curl -sL \"${{ github.event.release.zipball_url }}\" &gt; \"$ARCHIVE_NAME\".zip\n          curl -sL \"${{ github.event.release.tarball_url }}\" &gt; \"$ARCHIVE_NAME\".tar.gz\n      - name: move-archive\n        run: |\n          mv \"$ARCHIVE_NAME\".zip data/\n          mv \"$ARCHIVE_NAME\".tar.gz data/\n      - name: upload-to-figshare\n        uses: figshare/github-upload-action@v1.1\n        with:\n          FIGSHARE_TOKEN: ${{ secrets.FIGSHARE_TOKEN }}\n          FIGSHARE_ENDPOINT: 'https://api.figshare.com/v2'\n          FIGSHARE_ARTICLE_ID: 123456789  # Change this number!\n          DATA_DIR: 'data'\n\nThis is easy, make a copy of the ORDA.yaml from the repository and save it in your repositories .github/workflows/ORDA.yaml. Edit the value of FIGSHARE_ARTICLE_ID"
+  },
+  {
+    "objectID": "index.html#add-badge-to-readme.md",
+    "href": "index.html#add-badge-to-readme.md",
+    "title": "ORDA for FAIR4RS",
+    "section": "Add badge to README.md",
+    "text": "Add badge to README.md\n[![ORDA](https://img.shields.io/badge/ORDA--DOI-10.123456%2Fshef.data.123456789.v.1-lightgrey)](https://figshare.shef.ac.uk/articles/software/TopoStats/123456789/1)\n\nYou can add a badge to you repositories README.md which makes it easier for people to find and cite your work, one of the key ideas behind the FAIR principles. The URL for the badge will depend on your DOI and the link will depend on the URL of your package on ORDA.\nOnce done stage and commit all changes, this will be the README.md you’ve just modified and adding the .github/workflows/ORDA.yaml. Push these to GitHub."
+  },
+  {
+    "objectID": "index.html#make-a-release",
+    "href": "index.html#make-a-release",
+    "title": "ORDA for FAIR4RS",
+    "section": "Make a Release",
+    "text": "Make a Release\n\n\n\n\nChoose Tag (create if required).\nAdd a title.\nGenerate release notes (edit if required).\nSet as a pre-release if required.\nPublish release\n\n\n\n\n\nGitHub Releases\n\n\n\n\n\nThe process of making a release is unchanged, go to the repository and then navigate to releases/new, choose a tag and create if required. Add a title and you can get a summary of changes by auto-generating the release notes which pulls in the title of commits (only really useful if you’ve clear and effective PR headings). Set as a pre-release if required and then Publish."
+  },
+  {
+    "objectID": "index.html#make-a-release-1",
+    "href": "index.html#make-a-release-1",
+    "title": "ORDA for FAIR4RS",
+    "section": "Make a Release",
+    "text": "Make a Release\n\n\n\n\nChoose Tag (create if required).\nAdd a title.\nGenerate release notes (edit if required).\nSet as a pre-release if required.\nPublish release\n\n\n\n\n\nORDA Action Socket Timeout\n\n\n\n\n\nNew artifacts typically require reviewing so you need to return to the"
+  },
+  {
+    "objectID": "index.html#request-a-review",
+    "href": "index.html#request-a-review",
+    "title": "ORDA for FAIR4RS",
+    "section": "Request a Review",
+    "text": "Request a Review\n\n\n\n\nChoose Tag (create if required).\nAdd a title.\nGenerate release notes (edit if required).\nSet as a pre-release if required.\nPublish release\n\n\n\n\n\nORDA Review\n\n\n\n\n\nThis will trigger the ORDA GitHub Action and it should upload the artifacts automatically, although my experience is that this often fails through time-outs and you have to manually re-run the job or download the artifacts from the release and upload manually.\nWould like to resolve this but….time!\nNew artifacts typically require reviewing so you need to return to the"
+  },
+  {
+    "objectID": "index.html#links",
+    "href": "index.html#links",
+    "title": "ORDA for FAIR4RS",
+    "section": "Links",
+    "text": "Links\n\n\n\nGO FAIR\nFAIR Principles for research software\nORDA\nORDA | Library\nUploading to ORDA\nORDA: useful tips\nManaging an item in ORDA\n\n\n\nrelease_to_ORDA template\nHow to get a Personal Token\nUsing secrets in GitHub Actions\n\n\n\n\n\nSlides : ns-rse.github.io/orda-slides"
+  }
+]
