@@ -53,7 +53,7 @@
     "href": "index.html#figshare-token",
     "title": "ORDA for FAIR4RS",
     "section": "Figshare Token",
-    "text": "Figshare Token\n\n\nHow to get a Personal Token\n\nLogin to ORDA\nUser Menu &gt; Applications\nCreate Personal Token\nDescription\nSave\n\n\nUsing secrets in GitHub Actions + Repository Settings &gt; Secrets and Variables &gt; Actions + Secrets Tab click New repository secret + Give it a name e.g. ORDA + Paste Token from ORDA in. + Add Secret\n\n\n\nLogin to ORDA and from the User Menu select Applications, scroll down and you can Create Personal Token, add a Description and click on Save. As with most tokens these are only shown once so make sure to copy and save it somewhere secure if you’re not undertaking the next step immediately."
+    "text": "Figshare Token\n\n\nHow to get a Personal Token\n\nLogin to ORDA\nUser Menu &gt; Applications\nCreate Personal Token\nDescription\nSave\n\n\nUsing secrets in GitHub Actions\n\nRepository Settings &gt; Secrets and Variables &gt; Actions\nSecrets Tab click New repository secret\nGive it a name e.g. ORDA\nPaste Token from ORDA in.\nAdd Secret\n\n\n\n\nLogin to ORDA and from the User Menu select Applications, scroll down and you can Create Personal Token, add a Description and click on Save. As with most tokens these are only shown once so make sure to copy and save it somewhere secure if you’re not undertaking the next step immediately."
   },
   {
     "objectID": "index.html#figshare-article-id",
@@ -81,14 +81,14 @@
     "href": "index.html#make-a-release",
     "title": "ORDA for FAIR4RS",
     "section": "Make a Release",
-    "text": "Make a Release\n\n\n\n\nChoose Tag (create if required).\nAdd a title.\nGenerate release notes (edit if required).\nSet as a pre-release if required.\nPublish release\n\n\n\n\n\nGitHub Releases\n\n\n\n\n\nThe process of making a release is unchanged, go to the repository and then navigate to releases/new, choose a tag and create if required. Add a title and you can get a summary of changes by auto-generating the release notes which pulls in the title of commits (only really useful if you’ve clear and effective PR headings). Set as a pre-release if required and then Publish."
+    "text": "Make a Release\n\n\n\n\nChoose Tag (create if required).\nAdd a title.\nGenerate release notes (edit if required).\nSet as a pre-release if required.\nPublish release\n\n\n\n\n\nORDA Action Socket Timeout\n\n\n\n\n\nThe process of making a release is unchanged, go to the repository and then navigate to releases/new, choose a tag and create if required. Add a title and you can get a summary of changes by auto-generating the release notes which pulls in the title of commits (only really useful if you’ve clear and effective PR headings). Set as a pre-release if required and then Publish."
   },
   {
     "objectID": "index.html#make-a-release-1",
     "href": "index.html#make-a-release-1",
     "title": "ORDA for FAIR4RS",
     "section": "Make a Release",
-    "text": "Make a Release\n\n\n\n\nChoose Tag (create if required).\nAdd a title.\nGenerate release notes (edit if required).\nSet as a pre-release if required.\nPublish release\n\n\n\n\n\nORDA Action Socket Timeout\n\n\n\n\n\nNew artifacts typically require reviewing so you need to return to the"
+    "text": "Make a Release\n\n\n\n\nChoose Tag (create if required).\nAdd a title.\nGenerate release notes (edit if required).\nSet as a pre-release if required.\nPublish release\n\n\n\n\n\nGitHub Releases\n\n\n\n\n\nNew artifacts typically require reviewing so you need to return to the"
   },
   {
     "objectID": "index.html#request-a-review",
